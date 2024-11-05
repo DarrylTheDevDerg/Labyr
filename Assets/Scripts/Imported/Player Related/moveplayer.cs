@@ -18,6 +18,7 @@ public class moveplayer : MonoBehaviour
     private Rigidbody rb;
     private int jumpCount;
     private bool sprintMode;
+    Vector3 movimiento;
 
     private void Start()
     {
@@ -36,21 +37,36 @@ public class moveplayer : MonoBehaviour
         float movimientoVertical = Input.GetAxis("Vertical");
 
         // Calcula el vector de movimiento basado en las entradas
-        Vector3 movimiento = new Vector3(movimientoHorizontal, 0.0f, movimientoVertical);
+        movimiento = new Vector3(movimientoHorizontal, 0.0f, movimientoVertical);
 
         // Si hay entrada de movimiento
+        /*
         if (movimiento != Vector3.zero)
         {
-            rotacionDeseada = Quaternion.LookRotation(movimiento, Vector3.up);
+            // Calcula la dirección deseada en base al vector de movimiento
+            Vector3 direccionDeseada = new Vector3(
+                Mathf.Round(movimiento.x),
+                0.0f,
+                Mathf.Round(movimiento.z)
+            ).normalized;
 
-            // Mantén la rotación en el eje X en -90 grados
-            rotacionDeseada.eulerAngles = new Vector3(-90, rotacionDeseada.eulerAngles.y, rotacionDeseada.eulerAngles.z);
+            // Evita que el vector dirección quede en (0,0,0)
+            if (direccionDeseada != Vector3.zero)
+            {
+                // Establece la rotación deseada hacia la dirección deseada
+                Quaternion rotacionDeseada = Quaternion.LookRotation(direccionDeseada, Vector3.up);
 
-            // Gradualmente rota hacia la nueva rotación
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, rotacionDeseada, velocidadRotacion * Time.deltaTime);
+                // Realiza la rotación hacia la rotación deseada de forma gradual
+                transform.rotation = Quaternion.RotateTowards(
+                    transform.rotation,
+                    rotacionDeseada,
+                    velocidadRotacion * Time.deltaTime
+                );
+            }
         }
+        */
 
-        if (Input.GetKeyDown(KeyCode.Space) && !midair)
+            if (Input.GetKeyDown(KeyCode.Space) && !midair)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             midair = true;
@@ -71,8 +87,14 @@ public class moveplayer : MonoBehaviour
             velocidad -= sprintSpd;
             sprintMode = false;
         }
+        
+    }
+
+    public void FixedUpdate()
+    {
         // Mueve al jugador en la dirección del movimiento
-        transform.Translate(movimiento * velocidad * Time.deltaTime, Space.World);
+        // transform.position += (movimiento * velocidad * Time.deltaTime);
+        rb.MovePosition(transform.position + (movimiento * velocidad * Time.deltaTime)); 
     }
 
     private void OnCollisionEnter(Collision collision)
