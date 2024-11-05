@@ -626,7 +626,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Scripts:
 
-    Chatgpt'
+    ChatGPT
+
+    Darryl'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 40428ca1349d0dc4a84b955bde590c11, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 40428ca1349d0dc4a84b955bde590c11, type: 2}
@@ -1209,7 +1211,9 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Creador:
 
-    Ego`s'
+    Ego`s
+
+    Darryl'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 40428ca1349d0dc4a84b955bde590c11, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 40428ca1349d0dc4a84b955bde590c11, type: 2}
