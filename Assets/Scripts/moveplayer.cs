@@ -1,22 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class moveplayer : MonoBehaviour
 {
     [Header("Main settings")]
     public float velocidad = 5.0f; // Velocidad de movimiento del jugador
     public string groundTag = "Ground";
-    public float jumpForce = 10f;
-    public int extraJumps;
     public float sprintSpd = 1.0f;
+    public CinemachineVirtualCamera virtualCamera;
 
     private Quaternion rotacionDeseada;
-    private float velocidadRotacion = 360.0f; // Velocidad de rotación en grados por segundo
     private Quaternion rotacionOriginal;
-    private bool midair;
     private Rigidbody rb;
-    private int jumpCount;
     private bool sprintMode;
     Vector3 movimiento;
 
@@ -26,8 +23,6 @@ public class moveplayer : MonoBehaviour
 
         // Guarda la rotación original del jugador al inicio
         rotacionOriginal = transform.rotation;
-
-        jumpCount = extraJumps;
     }
 
     private void Update()
@@ -37,12 +32,16 @@ public class moveplayer : MonoBehaviour
         float movimientoVertical = Input.GetAxis("Vertical");
 
         // Calcula el vector de movimiento basado en las entradas
-        movimiento = new Vector3(movimientoHorizontal, 0.0f, movimientoVertical);
+        movimiento = movimientoVertical * new Vector3(virtualCamera.transform.forward.x, 0, virtualCamera.transform.forward.z);
 
         // Si hay entrada de movimiento
+        
         /*
-        if (movimiento != Vector3.zero)
+        if (movimientoHorizontal != 0)
         {
+            Vector3 currentR = transform.rotation.eulerAngles;
+            transform.rotation = Quaternion.Euler(currentR.x, currentR.y + movimientoHorizontal * Time.deltaTime * velocidadRotacion, currentR.z);
+            
             // Calcula la dirección deseada en base al vector de movimiento
             Vector3 direccionDeseada = new Vector3(
                 Mathf.Round(movimiento.x),
@@ -63,26 +62,17 @@ public class moveplayer : MonoBehaviour
                     velocidadRotacion * Time.deltaTime
                 );
             }
+            
         }
         */
 
-            if (Input.GetKeyDown(KeyCode.Space) && !midair)
-        {
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-            midair = true;
-        }
-        else if (Input.GetKeyDown(KeyCode.Space) && midair && jumpCount > 0)
-        {
-            ExtraJump();
-        }
-
-        if (Input.GetKeyDown(KeyCode.LeftShift) && !sprintMode && !midair)
+        if (Input.GetKeyDown(KeyCode.LeftShift) && !sprintMode)
         {
             velocidad += sprintSpd;
             sprintMode = true;
         }
 
-        if (Input.GetKeyUp(KeyCode.LeftShift) && sprintMode && !midair)
+        if (Input.GetKeyUp(KeyCode.LeftShift) && sprintMode)
         {
             velocidad -= sprintSpd;
             sprintMode = false;
@@ -95,20 +85,5 @@ public class moveplayer : MonoBehaviour
         // Mueve al jugador en la dirección del movimiento
         // transform.position += (movimiento * velocidad * Time.deltaTime);
         rb.MovePosition(transform.position + (movimiento * velocidad * Time.deltaTime)); 
-    }
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.CompareTag(groundTag))
-        {
-            midair = false;
-            jumpCount = extraJumps;
-        }
-    }
-
-    public void ExtraJump()
-    {
-        rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
-        jumpCount--;
     }
 }
