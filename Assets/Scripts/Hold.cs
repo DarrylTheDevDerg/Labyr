@@ -1,70 +1,87 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Burst.CompilerServices;
 using UnityEngine;
 
 public class Hold : MonoBehaviour
 {
-    public KeyCode key;
-    public string objectTag;
+    [Header("Grab Settings")]
+    public float grabDistance = 5.0f; // How far the Player can reach to grab an object
+    public float holdDistance = 1.5f; // How far the grabbed object should be from the Player's camera
+    public float grabSmoothness = 10.0f; // How smooth the object moves towards the hold position
+    public LayerMask grabbableLayer; // Layer for objects that can be grabbed
 
-    public Transform cameraTransform; // Main camera's transform to cast the ray from
-    public float maxRayDistance = 5f; // Maximum distance for raycast detection
-    public LayerMask holdableLayer;   // Layer mask to filter out non-holdable objects
-    private Transform heldObject;     // The object currently held
-    private Vector3 holdOffset = new Vector3(0, 0, 2); // Offset for positioning in front of camera
+    private Transform playerCamera; // Reference to the Player's camera
+    private Transform grabbedObject = null; // The currently grabbed object
 
-    private void Update()
+    private Rigidbody grabbedObjectRb; // Rigidbody of the grabbed object
+
+    void Start()
     {
-        if (heldObject != null)
+        // Find the Player's camera (assumes this script is attached to the Player)
+        playerCamera = Camera.main.transform;
+    }
+
+    void Update()
+    {
+        // If the Player presses "E", try grabbing or releasing an object
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            FollowCamera();
+            if (grabbedObject == null)
+            {
+                TryGrabObject();
+            }
+            else
+            {
+                ReleaseObject();
+            }
         }
 
-        if (Input.GetKeyDown(key))
+        // Move the object with the Player’s camera if it's currently held
+        if (grabbedObject != null)
         {
-            CheckForObject();
-        }
-
-        // Drop the object if the player presses a key (e.g., "E")
-        if (Input.GetKeyDown(key) && heldObject != null)
-        {
-            DropObject();
+            MoveObjectWithCamera();
         }
     }
 
-    private void CheckForObject()
+    void TryGrabObject()
     {
-        // Cast a ray from the camera forward
-        Ray ray = new Ray(cameraTransform.position, cameraTransform.forward);
-        if (Physics.Raycast(ray, out RaycastHit hit, maxRayDistance, holdableLayer))
+        // Raycast forward from the camera to detect grabbable objects
+        Ray ray = new Ray(playerCamera.position, playerCamera.forward);
+        RaycastHit hit;
+
+        if (Physics.Raycast(ray, out hit, grabDistance, grabbableLayer))
         {
-            // Check if the object hit is tagged as "Holdable" and there’s no held object
-            if (hit.transform.CompareTag(objectTag) && heldObject == null && Input.GetKeyDown(KeyCode.E))
+            // If we hit an object on the specified layer, grab it
+            grabbedObject = hit.transform;
+            grabbedObjectRb = grabbedObject.GetComponent<Rigidbody>();
+
+            if (grabbedObjectRb != null)
             {
-                PickUpObject(hit.transform);
+                // Disable physics temporarily
+                grabbedObjectRb.isKinematic = true;
             }
         }
     }
 
-    private void FollowCamera()
+    void ReleaseObject()
     {
-        // Position the held object in front of the camera, following its rotation
-        heldObject.position = cameraTransform.position + cameraTransform.forward * holdOffset.z;
-        heldObject.rotation = Quaternion.LookRotation(cameraTransform.forward);
-    }
-
-    private void PickUpObject(Transform obj)
-    {
-        heldObject = obj;
-        heldObject.SetParent(cameraTransform); // Parent it to the camera for automatic movement
-    }
-
-    private void DropObject()
-    {
-        if (heldObject != null)
+        if (grabbedObjectRb != null)
         {
-            heldObject.SetParent(null); // Unparent to release it
-            heldObject = null;
+            // Re-enable physics when releasing
+            grabbedObjectRb.isKinematic = false;
+            grabbedObjectRb = null;
         }
+
+        grabbedObject = null;
+    }
+
+    void MoveObjectWithCamera()
+    {
+        // Target position in front of the camera at holdDistance
+        Vector3 targetPosition = playerCamera.position + playerCamera.forward * holdDistance;
+
+        // Smoothly move the object to the target position
+        grabbedObject.position = Vector3.Lerp(grabbedObject.position, targetPosition, Time.deltaTime * grabSmoothness);
     }
 }

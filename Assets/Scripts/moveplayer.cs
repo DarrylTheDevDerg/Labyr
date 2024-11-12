@@ -11,18 +11,15 @@ public class moveplayer : MonoBehaviour
     public float sprintSpd = 1.0f;
     public CinemachineVirtualCamera virtualCamera;
 
-    private Quaternion rotacionDeseada;
-    private Quaternion rotacionOriginal;
     private Rigidbody rb;
     private bool sprintMode;
     Vector3 movimiento;
+    private float y;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
-
-        // Guarda la rotación original del jugador al inicio
-        rotacionOriginal = transform.rotation;
+        y = rb.position.y;
     }
 
     private void Update()
@@ -78,6 +75,10 @@ public class moveplayer : MonoBehaviour
             sprintMode = false;
         }
         
+        if (transform.position.y > y)
+        {
+            transform.position.Set(transform.position.x, 0, transform.position.z);
+        }
     }
 
     public void FixedUpdate()
