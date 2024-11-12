@@ -1,8 +1,11 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Button2 : MonoBehaviour
 {
     public float timeToDeactivate = 3f;  // Tiempo en segundos para que el botón se apague si no hay interacción
+    public UnityEvent stuff, revert;
+
     private bool isPressed = false;      // Si el botón está presionado
     private Renderer buttonRenderer;     // Para cambiar el color del botón
     private float timer = 0f;            // Temporizador para saber cuándo desactivar el botón
@@ -43,6 +46,7 @@ public class Button2 : MonoBehaviour
             // Cambiar el color del botón al activarlo
             buttonRenderer.material.color = Color.green;
 
+            stuff.Invoke();
             // Aquí puedes agregar otras acciones que deseas ejecutar cuando el botón se activa
         }
     }
@@ -69,6 +73,7 @@ public class Button2 : MonoBehaviour
         buttonRenderer.material.color = Color.red;  // Cambiar el color del botón a rojo (o cualquier color que desees)
         Debug.Log("Botón 2 desactivado por inactividad");
 
+        revert.Invoke();
         // Aquí puedes agregar otras acciones que desees ejecutar cuando el botón se desactiva
     }
 }

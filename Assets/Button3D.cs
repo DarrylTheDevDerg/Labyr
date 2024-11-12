@@ -1,9 +1,11 @@
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Button3D : MonoBehaviour
 {
     public bool isPressed = false;       // Para saber si el botón ha sido presionado
     private Renderer buttonRenderer;     // Para cambiar el color del botón
+    public UnityEvent stuff;
 
     // Usamos OnTriggerEnter para detectar cuando un objeto pasa por encima del botón
     private void Start()
@@ -41,6 +43,8 @@ public class Button3D : MonoBehaviour
 
             // Cambiar el color del botón al presionarlo (puedes personalizar la acción)
             buttonRenderer.material.color = Color.green;
+
+            stuff.Invoke();
 
             // Aquí puedes agregar otras acciones como activar algo en el juego, reproducir un sonido, etc.
         }
