@@ -28,11 +28,14 @@ public class moveplayer : MonoBehaviour
         float movimientoHorizontal = Input.GetAxis("Horizontal");
         float movimientoVertical = Input.GetAxis("Vertical");
 
+        Vector3 extra;
+
         // Calcula el vector de movimiento basado en las entradas
         movimiento = movimientoVertical * new Vector3(virtualCamera.transform.forward.x, 0, virtualCamera.transform.forward.z);
+        
 
         // Si hay entrada de movimiento
-        
+
         /*
         if (movimientoHorizontal != 0)
         {
@@ -62,6 +65,24 @@ public class moveplayer : MonoBehaviour
             
         }
         */
+
+        if (Input.GetAxis("Vertical") > 0 || Input.GetAxis("Vertical") < 0)
+        {
+            if (Input.GetAxis("Horizontal") > 0 || (Input.GetAxis("Horizontal") < 0))
+            {
+                extra = movimientoHorizontal * new Vector3(virtualCamera.transform.right.x, 0, virtualCamera.transform.right.z);
+                movimiento += extra;
+            }
+
+        }
+        else
+        {
+            if (Input.GetAxis("Horizontal") > 0 || (Input.GetAxis("Horizontal") < 0))
+            {
+                movimiento = movimientoHorizontal * new Vector3(virtualCamera.transform.right.x, 0, virtualCamera.transform.right.z);
+            }
+        }
+
 
         if (Input.GetKeyDown(KeyCode.LeftShift) && !sprintMode)
         {
