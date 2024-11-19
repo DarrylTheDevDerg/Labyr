@@ -52,7 +52,8 @@ public class Hold : MonoBehaviour
 
             if (grabbedObjectRb != null)
             {
-                grabbedObjectRb.isKinematic = true;
+                grabbedObjectRb.useGravity = false;
+                grabbedObjectRb.freezeRotation = true;
 
                 // Add an extra collider boundary
                 grabBoundary = new GameObject("GrabBoundary");
@@ -71,7 +72,8 @@ public class Hold : MonoBehaviour
     {
         if (grabbedObjectRb != null)
         {
-            grabbedObjectRb.isKinematic = false;
+            grabbedObjectRb.useGravity = true;
+            grabbedObjectRb.freezeRotation = false;
             grabbedObjectRb = null;
         }
 
@@ -89,6 +91,9 @@ public class Hold : MonoBehaviour
     {
         Vector3 targetPosition = playerCamera.position + playerCamera.forward * holdDistance;
 
+        //grabbedObject.position = Vector3.Lerp(grabbedObject.position, targetPosition, Time.deltaTime * grabSmoothness);
+
+        /*
         if (!IsPathBlocked(targetPosition))
         {
             grabbedObject.position = Vector3.Lerp(grabbedObject.position, targetPosition, Time.deltaTime * grabSmoothness);
@@ -97,8 +102,10 @@ public class Hold : MonoBehaviour
         {
             grabbedObject.position = FindSafePosition();
         }
+        */
     }
 
+    /*
     bool IsPathBlocked(Vector3 targetPosition)
     {
         Vector3 directionToTarget = targetPosition - grabbedObject.position;
@@ -123,5 +130,6 @@ public class Hold : MonoBehaviour
         }
         return playerCamera.position + playerCamera.forward * holdDistance;
     }
+    */
 }
 

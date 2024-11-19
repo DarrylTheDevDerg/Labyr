@@ -42,11 +42,6 @@ public class LevelText : MonoBehaviour
 
                 else if (sceneName == "Lv 3")
                 {
-                    text.text = "The Beginning";
-                }
-
-                else if (sceneName == "Lv 4")
-                {
                     text.text = "The End";
                 }
 

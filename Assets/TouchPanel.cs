@@ -4,21 +4,27 @@ using UnityEngine.Events;
 public class TouchPanel : MonoBehaviour
 {
     public float timel;  // Radio de detección alrededor del cubo
-    public bool playerInRange = false, timed; // Si el jugador está dentro del área de interacción
+    public bool playerInRange = false, timed, once; // Si el jugador está dentro del área de interacción
     public UnityEvent trigger;
     public KeyCode key;
 
     private float time;
+    private bool done;
 
     private void Update()
     {
-        if(Input.GetKeyDown(key) || time > timel)
+        if((Input.GetKeyDown(key) && !done) || (time > timel && !done))
         {
             InteractWithPanel();
             time = 0;
+
+            if (once)
+            {
+                done = true;
+            }
         }
 
-        if (Input.GetKey(key) && timed)
+        if (Input.GetKey(key) && timed && !done)
         {
             time += Time.deltaTime;
         }
@@ -49,14 +55,5 @@ public class TouchPanel : MonoBehaviour
         {
             trigger.Invoke();
         }
-    }
-
-    private void OnDrawGizmos()
-    {
-        SphereCollider collider = GetComponent<SphereCollider>();
-
-        Gizmos.color = Color.yellow;
-
-        Gizmos.DrawWireSphere(transform.position, collider.radius);
     }
 }
