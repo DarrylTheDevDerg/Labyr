@@ -15,6 +15,7 @@ public class UIControl : MonoBehaviour
     [Header("Raycast Settings")]
     public float rayDistance = 5f; // Distance for the ray to check.
     public LayerMask interactableLayer; // Layer mask to identify Interactable objects.
+    public LayerMask interactableLayer2;
 
     private Camera mainCamera;
     private float origAlpha;
@@ -38,7 +39,7 @@ public class UIControl : MonoBehaviour
         RaycastHit hit;
 
         // Check if the ray hits an object in the Interactable layer.
-        if (Physics.Raycast(ray, out hit, rayDistance, interactableLayer))
+        if (Physics.Raycast(ray, out hit, rayDistance, interactableLayer) || Physics.Raycast(ray, out hit, rayDistance, interactableLayer2))
         {
             // If we hit an interactable object, switch to the interactable crosshair.
             crosshairImage.sprite = interactableCrosshair;

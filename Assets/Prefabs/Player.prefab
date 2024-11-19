@@ -599,7 +599,7 @@ GameObject:
   - component: {fileID: 4248168191317624726}
   - component: {fileID: 5807777064077384301}
   - component: {fileID: 1740548839071906327}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -621,7 +621,6 @@ Transform:
   m_Children:
   - {fileID: 5219070120813186631}
   - {fileID: 5780922081824173663}
-  - {fileID: 275022211781410022}
   - {fileID: 1943524210300946528}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -769,7 +768,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c52c9fb6d53fbb844a886de85a7f3353, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  grabDistance: 4.5
+  grabDistance: 5.25
   holdDistance: 2.75
   grabSmoothness: 50
   grabbableLayer:
@@ -778,6 +777,7 @@ MonoBehaviour:
   collisionLayer:
     serializedVersion: 2
     m_Bits: 1
+  boxTag: Object
 --- !u!1 &4665883797464328765
 GameObject:
   m_ObjectHideFlags: 0
@@ -1153,10 +1153,13 @@ MonoBehaviour:
   defaultCrosshair: {fileID: 21300000, guid: 42e5388ab5cddea4e9af464d61b07286, type: 3}
   interactableCrosshair: {fileID: 21300000, guid: e287108d66e6c404f9fe45fc28fdee05,
     type: 3}
-  rayDistance: 5
+  rayDistance: 5.25
   interactableLayer:
     serializedVersion: 2
     m_Bits: 64
+  interactableLayer2:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!114 &4070110407222855151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1182,7 +1185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca5c5c452ace64f44b93190f12619ab9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 0}
+  text: {fileID: 5593568151867464196}
   names:
   - Tutorial
   - Lv 1
@@ -1324,57 +1327,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!1 &7394893627039637537
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 275022211781410022}
-  - component: {fileID: 1085602557037560429}
-  m_Layer: 0
-  m_Name: SaveManagement
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &275022211781410022
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7394893627039637537}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1978935639146038060}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1085602557037560429
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7394893627039637537}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7babb9d24a4b6e740aa0a9c5d3df8435, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playerPrefsList:
-  - key: Level
-    value: 0
-    prefType: 0
-  - key: Game Completed
-    value: 0
-    prefType: 0
 --- !u!1 &7603092753809076885
 GameObject:
   m_ObjectHideFlags: 0

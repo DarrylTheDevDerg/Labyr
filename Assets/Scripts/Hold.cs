@@ -8,6 +8,7 @@ public class Hold : MonoBehaviour
     public float grabSmoothness = 10.0f;
     public LayerMask grabbableLayer;
     public LayerMask collisionLayer;
+    public string boxTag;
 
     private Transform playerCamera;
     private Transform grabbedObject = null;

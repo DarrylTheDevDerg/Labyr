@@ -28,31 +28,37 @@ public class LevelText : MonoBehaviour
     {
         foreach (string s in array)
         {
-            switch (s + sceneName)
+            if (s == sceneName)
             {
-                case string when sceneName == "Lv 1" && s == sceneName:
-                    text.text = s;
-                    break;
+                if (sceneName == "Lv 1")
+                {
+                    text.text = "The Grass Maze";
+                }
 
-                case string when sceneName == "Lv 2" && s == sceneName:
-                    text.text = s;
-                    break;
+                else if (sceneName == "Lv 2")
+                {
+                    text.text = "The Pit";
+                }
 
-                case string when sceneName == "Lv 3" && s == sceneName:
-                    text.text = s;
-                    break;
+                else if (sceneName == "Lv 3")
+                {
+                    text.text = "The Beginning";
+                }
 
-                case string when sceneName == "Lv 4" && s == sceneName:
-                    text.text = s;
-                    break;
+                else if (sceneName == "Lv 4")
+                {
+                    text.text = "The End";
+                }
 
-                case string when sceneName == "Tutorial" && s == sceneName:
-                    text.text = s;
-                    break;
+                else if (sceneName == "Tutorial")
+                {
+                    text.text = "Tutorial";
+                }
 
-                default:
-                    text.text = "Bonus Level!";
-                    break;
+                else
+                {
+                    text.text = "Bonus Level";
+                }
             }
         }
     }

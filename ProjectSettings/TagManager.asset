@@ -15,8 +15,8 @@ TagManager:
   - UI
   - Interactable
   - Solid
-  - 
-  - 
+  - Interactable (Non-grabbable)
+  - Player
   - 
   - 
   - 
