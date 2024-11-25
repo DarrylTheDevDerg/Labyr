@@ -603,7 +603,7 @@ Transform:
   m_GameObject: {fileID: 1867197874403574512}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.92, z: 0.00999999}
+  m_LocalPosition: {x: 0, y: 1.8900002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -706,8 +706,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd6043bde05a7fc4cba197d06915c1e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damping: {x: 0.1, y: 0.5, z: 0.3}
-  ShoulderOffset: {x: 0, y: 1.52, z: 2.01}
+  Damping: {x: 0.1, y: 0.5, z: 0.42}
+  ShoulderOffset: {x: 0, y: 1.49, z: 2}
   VerticalArmLength: 0.4
   CameraSide: 1
   CameraDistance: 2
@@ -750,7 +750,7 @@ Transform:
   m_GameObject: {fileID: 3032199590546260530}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.85, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -817,7 +817,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3032199590546260530}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 3
   m_Drag: 0
   m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -835,7 +835,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 116
-  m_CollisionDetection: 0
+  m_CollisionDetection: 2
 --- !u!114 &1978152032913651513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -848,7 +848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2844b2c144540aa4d88002c815a5d231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidad: 7.5
+  velocidad: 8.46
   groundTag: Ground
   sprintSpd: 2.5
   virtualCamera: {fileID: 6171283642861154944}
@@ -904,14 +904,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grabDistance: 5.25
-  holdDistance: 2.75
-  grabSmoothness: 50
+  holdDistance: 3
+  grabSmoothness: 10.8
   grabbableLayer:
     serializedVersion: 2
     m_Bits: 64
   collisionLayer:
     serializedVersion: 2
-    m_Bits: 1
+    m_Bits: 128
   boxTag: Object
 --- !u!1 &4116347504249921938
 GameObject:
@@ -1806,6 +1806,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5272757994447194435}
+  - component: {fileID: 9113923804175333994}
   m_Layer: 0
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -1836,6 +1837,27 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!95 &9113923804175333994
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7603092753809076885}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 049760002988b41428530092480e4ca5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 2
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7940749750944329854
 GameObject:
   m_ObjectHideFlags: 0

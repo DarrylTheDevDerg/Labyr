@@ -83,7 +83,7 @@ public class moveplayer : MonoBehaviour
             }
         }
 
-
+        /*
         if (Input.GetKeyDown(KeyCode.LeftShift) && !sprintMode)
         {
             velocidad += sprintSpd;
@@ -95,7 +95,8 @@ public class moveplayer : MonoBehaviour
             velocidad -= sprintSpd;
             sprintMode = false;
         }
-        
+        */
+
         if (transform.position.y > y)
         {
             transform.position.Set(transform.position.x, 0, transform.position.z);

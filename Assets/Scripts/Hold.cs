@@ -14,6 +14,7 @@ public class Hold : MonoBehaviour
     private Transform grabbedObject = null;
     private Rigidbody grabbedObjectRb;
     private GameObject grabBoundary; // New: Extra collider boundary
+    private float origMass;
 
     void Start()
     {
@@ -52,8 +53,11 @@ public class Hold : MonoBehaviour
 
             if (grabbedObjectRb != null)
             {
+                
                 grabbedObjectRb.useGravity = false;
                 grabbedObjectRb.freezeRotation = true;
+
+                //grabbedObjectRb.isKinematic = true;
 
                 // Add an extra collider boundary
                 grabBoundary = new GameObject("GrabBoundary");
@@ -72,8 +76,11 @@ public class Hold : MonoBehaviour
     {
         if (grabbedObjectRb != null)
         {
+            
             grabbedObjectRb.useGravity = true;
             grabbedObjectRb.freezeRotation = false;
+            
+            //grabbedObjectRb.isKinematic = false;
             grabbedObjectRb = null;
         }
 
@@ -91,9 +98,6 @@ public class Hold : MonoBehaviour
     {
         Vector3 targetPosition = playerCamera.position + playerCamera.forward * holdDistance;
 
-        //grabbedObject.position = Vector3.Lerp(grabbedObject.position, targetPosition, Time.deltaTime * grabSmoothness);
-
-        /*
         if (!IsPathBlocked(targetPosition))
         {
             grabbedObject.position = Vector3.Lerp(grabbedObject.position, targetPosition, Time.deltaTime * grabSmoothness);
@@ -102,10 +106,9 @@ public class Hold : MonoBehaviour
         {
             grabbedObject.position = FindSafePosition();
         }
-        */
     }
 
-    /*
+    
     bool IsPathBlocked(Vector3 targetPosition)
     {
         Vector3 directionToTarget = targetPosition - grabbedObject.position;
@@ -130,6 +133,6 @@ public class Hold : MonoBehaviour
         }
         return playerCamera.position + playerCamera.forward * holdDistance;
     }
-    */
+    
 }
 
