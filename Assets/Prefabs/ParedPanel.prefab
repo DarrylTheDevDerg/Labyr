@@ -170,7 +170,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: e8e7228a54565cb408d58f9af2c08100, type: 2}
+  - {fileID: 2100000, guid: b6985429fa0e85841be0ce454012a72a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -352,6 +352,7 @@ MonoBehaviour:
   timel: 0.2
   playerInRange: 0
   timed: 0
+  once: 0
   trigger:
     m_PersistentCalls:
       m_Calls:

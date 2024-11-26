@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5686025918599304084}
   - component: {fileID: 6552158465917804766}
   - component: {fileID: 8748884175008903495}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: "Pared Diagonal (45\xB0)"
   m_TagString: Untagged
   m_Icon: {fileID: 0}
