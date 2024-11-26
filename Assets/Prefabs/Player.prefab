@@ -817,7 +817,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3032199590546260530}
   serializedVersion: 4
-  m_Mass: 3
+  m_Mass: 1
   m_Drag: 0
   m_AngularDrag: 0
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -834,8 +834,8 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 116
-  m_CollisionDetection: 2
+  m_Constraints: 112
+  m_CollisionDetection: 1
 --- !u!114 &1978152032913651513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -848,7 +848,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2844b2c144540aa4d88002c815a5d231, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  velocidad: 8.46
+  velocidad: 9.5
   groundTag: Ground
   sprintSpd: 2.5
   virtualCamera: {fileID: 6171283642861154944}
@@ -871,8 +871,8 @@ CapsuleCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 0.82
-  m_Height: 2.43
+  m_Radius: 0.47
+  m_Height: 2.24
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &5807777064077384301

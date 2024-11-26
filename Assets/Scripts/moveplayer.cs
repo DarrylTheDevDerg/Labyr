@@ -96,11 +96,6 @@ public class moveplayer : MonoBehaviour
             sprintMode = false;
         }
         */
-
-        if (transform.position.y > y)
-        {
-            transform.position.Set(transform.position.x, 0, transform.position.z);
-        }
     }
 
     public void FixedUpdate()
