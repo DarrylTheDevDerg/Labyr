@@ -8,13 +8,15 @@ public class Hold : MonoBehaviour
     public float grabSmoothness = 10.0f;
     public LayerMask grabbableLayer;
     public LayerMask collisionLayer;
+    public LayerMask ghostLayer;
     public string boxTag;
+    public AudioSource boxNoise;
 
     private Transform playerCamera;
     private Transform grabbedObject = null;
     private Rigidbody grabbedObjectRb;
     private GameObject grabBoundary; // New: Extra collider boundary
-    private float origMass;
+    private float ghostTimer;
 
     void Start()
     {
@@ -116,9 +118,12 @@ public class Hold : MonoBehaviour
 
         if (Physics.BoxCast(grabbedObject.position, grabbedObject.localScale / 2, directionToTarget.normalized, out RaycastHit hit, Quaternion.identity, distanceToTarget, collisionLayer))
         {
+            boxNoise.Play();
             return true;
         }
+
         return false;
+
     }
 
     Vector3 FindSafePosition()

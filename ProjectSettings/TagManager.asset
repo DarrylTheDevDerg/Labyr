@@ -6,6 +6,9 @@ TagManager:
   tags:
   - Ground
   - Object
+  - Grass
+  - Metal
+  - General
   layers:
   - Default
   - TransparentFX
@@ -17,7 +20,7 @@ TagManager:
   - Solid
   - Interactable (Non-grabbable)
   - Player
-  - 
+  - Ghost
   - 
   - 
   - 

@@ -11,8 +11,11 @@ public class moveplayer : MonoBehaviour
     public float sprintSpd = 1.0f;
     public CinemachineVirtualCamera virtualCamera;
 
+    [Header("Raycast Settings")]
+    public float rayDistance = 10f; // Maximum distance of the ray
+    public LayerMask layerMask;     // Layer mask to filter raycast hits
+
     private Rigidbody rb;
-    private bool sprintMode;
     Vector3 movimiento;
     private float y;
 
@@ -72,6 +75,7 @@ public class moveplayer : MonoBehaviour
             {
                 extra = movimientoHorizontal * new Vector3(virtualCamera.transform.right.x, 0, virtualCamera.transform.right.z);
                 movimiento += extra;
+
             }
 
         }
@@ -102,6 +106,8 @@ public class moveplayer : MonoBehaviour
     {
         // Mueve al jugador en la dirección del movimiento
         // transform.position += (movimiento * velocidad * Time.deltaTime);
-        rb.MovePosition(transform.position + (movimiento * velocidad * Time.deltaTime)); 
+        rb.MovePosition(transform.position + (movimiento * velocidad * Time.deltaTime));
     }
+
+   
 }

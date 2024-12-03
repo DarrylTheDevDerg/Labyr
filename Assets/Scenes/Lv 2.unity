@@ -725,7 +725,7 @@ GameObject:
   - component: {fileID: 477843957}
   m_Layer: 0
   m_Name: Plat_Inicio
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1652,7 +1652,7 @@ GameObject:
   - component: {fileID: 978964242}
   m_Layer: 7
   m_Name: Pared (2)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1972,7 +1972,7 @@ GameObject:
   - component: {fileID: 1307825213}
   m_Layer: 0
   m_Name: Pozo
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2077,7 +2077,7 @@ GameObject:
   - component: {fileID: 1340687057}
   m_Layer: 7
   m_Name: Cube
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2265,7 +2265,7 @@ GameObject:
   - component: {fileID: 1540486447}
   m_Layer: 7
   m_Name: Pared (1)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2445,7 +2445,7 @@ Transform:
   m_GameObject: {fileID: 1638287048}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.22772217, y: -0.6100038, z: -5.224922}
+  m_LocalPosition: {x: 0.22772217, y: -1.3500038, z: -5.224922}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2474,7 +2474,7 @@ MonoBehaviour:
     m_Bits: 1
   m_VolumeTrigger: {fileID: 0}
   m_VolumeFrameworkUpdateModeOption: 2
-  m_RenderPostProcessing: 0
+  m_RenderPostProcessing: 1
   m_Antialiasing: 0
   m_AntialiasingQuality: 2
   m_StopNaN: 0
@@ -2541,7 +2541,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 5d731c1e1fd78da4fb92874e1a6ea964, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.45
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2989,7 +2989,7 @@ GameObject:
   - component: {fileID: 1844860781}
   m_Layer: 7
   m_Name: Cube (1)
-  m_TagString: Untagged
+  m_TagString: Metal
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3151,7 +3151,7 @@ PrefabInstance:
     - target: {fileID: 5219070120813186631, guid: 7c2c3e43258def74c9238b070f499310,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.89
+      value: 1.15
       objectReference: {fileID: 0}
     - target: {fileID: 5219070120813186631, guid: 7c2c3e43258def74c9238b070f499310,
         type: 3}
@@ -3405,7 +3405,7 @@ PrefabInstance:
     - target: {fileID: 8196030325997342543, guid: 4fc476016596a07458d57fe07052edd2,
         type: 3}
       propertyPath: trigger.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8196030325997342543, guid: 4fc476016596a07458d57fe07052edd2,
         type: 3}
@@ -3419,6 +3419,11 @@ PrefabInstance:
       objectReference: {fileID: 769794964}
     - target: {fileID: 8196030325997342543, guid: 4fc476016596a07458d57fe07052edd2,
         type: 3}
+      propertyPath: trigger.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 2146197936}
+    - target: {fileID: 8196030325997342543, guid: 4fc476016596a07458d57fe07052edd2,
+        type: 3}
       propertyPath: trigger.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
       objectReference: {fileID: 0}
@@ -3429,8 +3434,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8196030325997342543, guid: 4fc476016596a07458d57fe07052edd2,
         type: 3}
+      propertyPath: trigger.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Play
+      objectReference: {fileID: 0}
+    - target: {fileID: 8196030325997342543, guid: 4fc476016596a07458d57fe07052edd2,
+        type: 3}
       propertyPath: trigger.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: SP, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8196030325997342543, guid: 4fc476016596a07458d57fe07052edd2,
+        type: 3}
+      propertyPath: trigger.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: UnityEngine.AudioSource, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 8196030325997342543, guid: 4fc476016596a07458d57fe07052edd2,
         type: 3}
@@ -3457,6 +3472,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4fc476016596a07458d57fe07052edd2, type: 3}
+--- !u!82 &2146197936 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 281517249551024013, guid: 4fc476016596a07458d57fe07052edd2,
+    type: 3}
+  m_PrefabInstance: {fileID: 2146197935}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
