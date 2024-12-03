@@ -9,6 +9,8 @@ TagManager:
   - Grass
   - Metal
   - General
+  - Ghost
+  - Wood
   layers:
   - Default
   - TransparentFX

@@ -631,7 +631,7 @@ MonoBehaviour:
   m_LookAt: {fileID: 0}
   m_Follow: {fileID: 1978935639146038060}
   m_Lens:
-    FieldOfView: 45
+    FieldOfView: 55.5
     OrthographicSize: 5
     NearClipPlane: 0.01
     FarClipPlane: 1000
@@ -893,8 +893,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5ff1edfb8615974e978cd1fb861900c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mouseSensitivity: 720
-  maxVerticalAngle: 75
+  mouseSensitivity: 520
+  maxVerticalAngle: 70
   firstPersonCamera: {fileID: 6171283642861154944}
   firstPersonCanvas: {fileID: 6467959880130600663}
 --- !u!114 &1740548839071906327

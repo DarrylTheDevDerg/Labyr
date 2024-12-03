@@ -128,9 +128,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 125b4ff941aec0647863603546505a81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timel: 0
+  timel: 0.1
   playerInRange: 0
-  timed: 0
+  timed: 1
   once: 1
   trigger:
     m_PersistentCalls:

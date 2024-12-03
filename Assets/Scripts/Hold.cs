@@ -16,11 +16,12 @@ public class Hold : MonoBehaviour
     private Transform grabbedObject = null;
     private Rigidbody grabbedObjectRb;
     private GameObject grabBoundary; // New: Extra collider boundary
-    private float ghostTimer;
+    private GhostItem gI;
 
     void Start()
     {
         playerCamera = Camera.main.transform;
+        
     }
 
     void Update()
@@ -52,6 +53,8 @@ public class Hold : MonoBehaviour
         {
             grabbedObject = hit.transform;
             grabbedObjectRb = grabbedObject.GetComponent<Rigidbody>();
+
+            gI = grabbedObject.GetComponent<GhostItem>();
 
             if (grabbedObjectRb != null)
             {
@@ -100,7 +103,7 @@ public class Hold : MonoBehaviour
     {
         Vector3 targetPosition = playerCamera.position + playerCamera.forward * holdDistance;
 
-        if (!IsPathBlocked(targetPosition))
+        if (!IsPathBlocked(targetPosition) && !gI.inGhost)
         {
             grabbedObject.position = Vector3.Lerp(grabbedObject.position, targetPosition, Time.deltaTime * grabSmoothness);
         }
@@ -116,7 +119,7 @@ public class Hold : MonoBehaviour
         Vector3 directionToTarget = targetPosition - grabbedObject.position;
         float distanceToTarget = directionToTarget.magnitude;
 
-        if (Physics.BoxCast(grabbedObject.position, grabbedObject.localScale / 2, directionToTarget.normalized, out RaycastHit hit, Quaternion.identity, distanceToTarget, collisionLayer))
+        if (Physics.BoxCast(grabbedObject.position, grabbedObject.localScale / 2, directionToTarget.normalized, out RaycastHit hit, Quaternion.identity, distanceToTarget, collisionLayer) && !gI.inGhost)
         {
             boxNoise.Play();
             return true;
@@ -132,7 +135,7 @@ public class Hold : MonoBehaviour
         float maxDistance = holdDistance;
 
         RaycastHit hit;
-        if (Physics.Raycast(playerCamera.position, directionToObject.normalized, out hit, maxDistance, collisionLayer))
+        if (Physics.Raycast(playerCamera.position, directionToObject.normalized, out hit, maxDistance, collisionLayer) && !gI.inGhost)
         {
             return hit.point - directionToObject.normalized * 0.1f;
         }

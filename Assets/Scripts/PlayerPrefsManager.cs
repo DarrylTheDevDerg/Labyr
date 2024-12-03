@@ -12,7 +12,8 @@ public class PlayerPrefItem
     {
         Int,
         Float,
-        String
+        String,
+        //Bool
     }
 }
 
@@ -46,6 +47,15 @@ public class PlayerPrefsManager : MonoBehaviour
                 case PlayerPrefItem.PlayerPrefType.String:
                     PlayerPrefs.SetString(item.key, item.value);
                     break;
+
+                /*
+                case PlayerPrefItem.PlayerPrefType.Bool:
+                    if (float.TryParse(item.value, out bool boolValue))
+                    {
+                        PlayerPrefs.SetInt(item.key, boolValue);
+                    }
+                    break;
+                */
             }
         }
         PlayerPrefs.Save();

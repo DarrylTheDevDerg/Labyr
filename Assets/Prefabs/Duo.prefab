@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3126286126981774200}
   m_Layer: 7
   m_Name: Rampa (1)
-  m_TagString: Untagged
+  m_TagString: Wood
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -150,9 +150,9 @@ GameObject:
   - component: {fileID: 4914977469633085388}
   - component: {fileID: 8148683461465159137}
   - component: {fileID: 3164128764613696950}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ventana
-  m_TagString: Untagged
+  m_TagString: Ghost
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

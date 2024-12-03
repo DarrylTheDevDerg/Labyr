@@ -13,7 +13,7 @@ public class TouchPanel : MonoBehaviour
 
     private void Update()
     {
-        if((Input.GetKeyDown(key) && !done) || (time > timel && !done))
+        if(Input.GetKeyDown(key) && !done && playerInRange || time > timel && !done && playerInRange)
         {
             InteractWithPanel();
             time = 0;
