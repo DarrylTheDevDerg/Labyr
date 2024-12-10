@@ -152,7 +152,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 128
   ghostTag: Ghost
-  normalTag: []
+  collisionLayers: []
   boxFall: {fileID: -6429009465963964943}
   inGhost: 0
 --- !u!82 &-6429009465963964943
@@ -167,7 +167,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 71df39136ce357d4f8dbcf2411bbaae9, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.916
+  m_Volume: 0.13
   m_Pitch: 1
   Loop: 0
   Mute: 0

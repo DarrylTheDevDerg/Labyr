@@ -10,7 +10,6 @@ public class Hold : MonoBehaviour
     public LayerMask collisionLayer;
     public LayerMask ghostLayer;
     public string boxTag;
-    public AudioSource boxNoise;
 
     private Transform playerCamera;
     private Transform grabbedObject = null;
@@ -121,7 +120,6 @@ public class Hold : MonoBehaviour
 
         if (Physics.BoxCast(grabbedObject.position, grabbedObject.localScale / 2, directionToTarget.normalized, out RaycastHit hit, Quaternion.identity, distanceToTarget, collisionLayer) && !gI.inGhost)
         {
-            boxNoise.Play();
             return true;
         }
 

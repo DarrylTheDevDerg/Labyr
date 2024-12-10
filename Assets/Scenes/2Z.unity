@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1244,6 +1244,8 @@ GameObject:
   - component: {fileID: 1379118184}
   - component: {fileID: 1379118189}
   - component: {fileID: 1379118191}
+  - component: {fileID: 1379118192}
+  - component: {fileID: 1379118193}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1515,6 +1517,38 @@ MonoBehaviour:
     mipBias: 0
     varianceClampScale: 0.9
     contrastAdaptiveSharpening: 0
+--- !u!114 &1379118192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379118183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b958606c51d5e794ea4e80b7c02f11a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeSlider: {fileID: 0}
+  useAudioSource: 1
+  audioSource:
+  - {fileID: 1379118185}
+  audioMixer: {fileID: 0}
+--- !u!114 &1379118193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379118183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03f5a23f69185984ba9c5761f000fb99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invertGravity: 1
+  gravity: 1
+  onStart: 1
 --- !u!1 &1490527072
 GameObject:
   m_ObjectHideFlags: 0
@@ -2118,7 +2152,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c563cd61f299a944994dbeb941efe09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  upwardForce: 15
+  upwardForce: 10.2
   gravityMultiplier: 0.1
 --- !u!1 &2080513020
 GameObject:
