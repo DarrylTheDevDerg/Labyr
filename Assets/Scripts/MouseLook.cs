@@ -3,7 +3,7 @@ using Cinemachine;
 
 public class MouseLook : MonoBehaviour
 {
-    [SerializeField] float mouseSensitivity = 100f;
+    [SerializeField] public float mouseSensitivity = 100f;
     [SerializeField] float maxVerticalAngle = 90f;
     [SerializeField] CinemachineVirtualCamera firstPersonCamera;
     [SerializeField] GameObject firstPersonCanvas;

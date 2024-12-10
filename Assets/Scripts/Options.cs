@@ -2,12 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
+using UnityEngine.Audio;
 
 public class Options : MonoBehaviour
 {
     public Transform player;
+    public AudioMixer audioControl;
 
-    private AudioListener audioControl;
     private Volume cam;
     private int lang;
     private int postProcess;
@@ -16,12 +17,12 @@ public class Options : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        audioControl = FindObjectOfType<AudioListener>();
+        audioControl = FindObjectOfType<AudioMixer>();
         cam = FindObjectOfType<Volume>();
 
         lang = PlayerPrefs.GetInt("Idioma", 0);
         postProcess = PlayerPrefs.GetInt("Post-procesado", 0);
-        mouseSensibility = PlayerPrefs.GetFloat("Sensibilidad", 200f);
+        mouseSensibility = PlayerPrefs.GetFloat("Sensibilidad", 5f);
 
         if (postProcess > 0)
         {
@@ -30,13 +31,37 @@ public class Options : MonoBehaviour
 
         if (player != null)
         {
-            player.GetComponent<MouseLook>();
+            player.GetComponent<MouseLook>().mouseSensitivity = mouseSensibility * 100;
         }
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (audioControl != null)
+        {
+            if (!PlayerPrefs.HasKey("volumneMaster"))
+            {
+                audioControl.SetFloat("masterVolume", PlayerPrefs.GetFloat("volumneMaster", 100));
+            }
+            else
+            {
+                audioControl.SetFloat("masterVolume", PlayerPrefs.GetFloat("volumneMaster"));
+            }
+            
+            if (!PlayerPrefs.HasKey("SFX Volume"))
+            {
+                audioControl.SetFloat("SFXVolume", PlayerPrefs.GetFloat("SFX Volume", 100));
+            }
+            else
+            {
+                audioControl.SetFloat("SFXVolume", PlayerPrefs.GetFloat("SFX Volume"));
+            }
+
+            if (!PlayerPrefs.HasKey("Music Volume"))
+            {
+                audioControl.SetFloat("musicVolume", PlayerPrefs.GetFloat("Music Volume", 100));
+            }
+            else
+            {
+                audioControl.SetFloat("musicVolume", PlayerPrefs.GetFloat("Music Volume"));
+            }
+        }
     }
 }

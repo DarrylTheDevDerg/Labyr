@@ -142,7 +142,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 363b55779df50004286afb82d6496500, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: 
+  player: Player
   stuff:
     m_PersistentCalls:
       m_Calls:
@@ -465,7 +465,8 @@ AudioSource:
   m_GameObject: {fileID: 7400345646318704381}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -3872919386454245563, guid: 666174c66f256f845b2179254783164e,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 13745543951904b4195172f6aa77535f, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
