@@ -4966,6 +4966,7 @@ GameObject:
   - component: {fileID: 506081701}
   - component: {fileID: 506081703}
   - component: {fileID: 506081702}
+  - component: {fileID: 506081704}
   m_Layer: 5
   m_Name: Fuente
   m_TagString: Untagged
@@ -5092,6 +5093,25 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 506081700}
   m_CullTransparentMesh: 1
+--- !u!114 &506081704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 506081700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4761d0ae2bb2a5489376c9c83fe790a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  languageStrings:
+  - 'Fuente:
+
+    Typodermic Fonts'
+  - 'Font:
+
+    Typodermic Fonts'
 --- !u!1 &582584158
 GameObject:
   m_ObjectHideFlags: 0
@@ -5621,20 +5641,20 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Ost:
+  m_text: 'OST:
 
-    Mysery masks
+    Mysery Masks
 
     Celeste
 
-    Half life
+    Half Life
 
     GameDevTycoon
 
     SilvaGunner
 
-    road
-    trip
+    Road
+    Trip
 
 '
   m_isRightToLeft: 0
@@ -5773,7 +5793,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 'Scripts:
 
-    Chatgpt
+    ChatGPT
 
     Darryl'
   m_isRightToLeft: 0
@@ -6082,6 +6102,7 @@ GameObject:
   - component: {fileID: 1379118192}
   - component: {fileID: 1379118193}
   - component: {fileID: 1379118194}
+  - component: {fileID: 1379118195}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -6400,6 +6421,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   state: 1
   start: 1
+--- !u!114 &1379118195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1379118183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cad95db9106e8dc4a989358193018b04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  audioControl: {fileID: 24100000, guid: 666174c66f256f845b2179254783164e, type: 2}
+  mouseSlider: {fileID: 0}
 --- !u!1 &1490527072
 GameObject:
   m_ObjectHideFlags: 0
@@ -6411,6 +6447,7 @@ GameObject:
   - component: {fileID: 1490527073}
   - component: {fileID: 1490527075}
   - component: {fileID: 1490527074}
+  - component: {fileID: 1490527076}
   m_Layer: 5
   m_Name: Modelos
   m_TagString: Untagged
@@ -6539,6 +6576,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1490527072}
   m_CullTransparentMesh: 1
+--- !u!114 &1490527076
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490527072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4761d0ae2bb2a5489376c9c83fe790a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  languageStrings:
+  - 'Modelos 3D:
+
+    Darryl
+
+'
+  - '3D Models:
+
+    Darryl
+
+'
 --- !u!1 &1534826318
 GameObject:
   m_ObjectHideFlags: 0
@@ -6720,6 +6780,7 @@ GameObject:
   - component: {fileID: 1656845290}
   - component: {fileID: 1656845292}
   - component: {fileID: 1656845291}
+  - component: {fileID: 1656845293}
   m_Layer: 5
   m_Name: Gracias
   m_TagString: Untagged
@@ -6844,6 +6905,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1656845289}
   m_CullTransparentMesh: 1
+--- !u!114 &1656845293
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1656845289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4761d0ae2bb2a5489376c9c83fe790a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  languageStrings:
+  - "\xA1Gracias por jugar! :)"
+  - Thanks for playing! :)
 --- !u!1 &1666925201
 GameObject:
   m_ObjectHideFlags: 0
@@ -7290,6 +7366,7 @@ GameObject:
   - component: {fileID: 2114481458}
   - component: {fileID: 2114481460}
   - component: {fileID: 2114481459}
+  - component: {fileID: 2114481461}
   m_Layer: 5
   m_Name: Creador
   m_TagString: Untagged
@@ -7418,6 +7495,29 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2114481457}
   m_CullTransparentMesh: 1
+--- !u!114 &2114481461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114481457}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4761d0ae2bb2a5489376c9c83fe790a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  languageStrings:
+  - 'Creador (es):
+
+    Darryl
+
+    Ego''s'
+  - 'Creator (s):
+
+    Darryl
+
+    Ego''s'
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0

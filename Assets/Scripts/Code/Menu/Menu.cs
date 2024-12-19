@@ -40,6 +40,8 @@ public class Menu : MonoBehaviour
         {
             EjecutarAccionBotonSeleccionado();
         }
+
+        Cursor.lockState = CursorLockMode.None;
     }
 
     // Función para navegar entre los botones con teclas de dirección o WASD

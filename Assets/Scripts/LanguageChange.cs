@@ -21,9 +21,10 @@ public class LanguageChange : MonoBehaviour
     void Update()
     {
         text.text = languageStrings[langSetting];
+        LanguageUpdate();
     }
 
-    void AddLanguage()
+    public void AddLanguage()
     {
         langSetting++;
 
@@ -35,7 +36,7 @@ public class LanguageChange : MonoBehaviour
         PlayerPrefs.SetInt("Idioma", langSetting);
     }
 
-    void SetLanguage(int value)
+    public void SetLanguage(int value)
     {
         langSetting = value;
 
@@ -45,5 +46,10 @@ public class LanguageChange : MonoBehaviour
         }
 
         PlayerPrefs.SetInt("Idioma", value);
+    }
+
+    public void LanguageUpdate()
+    {
+        langSetting = PlayerPrefs.GetInt("Idioma", 0);
     }
 }

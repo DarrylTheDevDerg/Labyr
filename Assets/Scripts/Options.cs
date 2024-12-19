@@ -3,65 +3,140 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Audio;
+using UnityEngine.UI;
+using static UnityEngine.Rendering.DebugUI;
 
 public class Options : MonoBehaviour
 {
     public Transform player;
     public AudioMixer audioControl;
+    public Slider mouseSlider, sfx, music;
+
 
     private Volume cam;
-    private int lang;
-    private int postProcess;
+    public int lang;
+    public int postProcess;
     private float mouseSensibility;
 
     // Start is called before the first frame update
     void Start()
     {
-        audioControl = FindObjectOfType<AudioMixer>();
         cam = FindObjectOfType<Volume>();
 
         lang = PlayerPrefs.GetInt("Idioma", 0);
         postProcess = PlayerPrefs.GetInt("Post-procesado", 0);
-        mouseSensibility = PlayerPrefs.GetFloat("Sensibilidad", 5f);
+        float initialMouseSensibility = PlayerPrefs.GetFloat("Sensibilidad", 5f);
+        float initialSFX = PlayerPrefs.GetFloat("SFX Volume", 1f);
+        float initialMusic = PlayerPrefs.GetFloat("Music Volume", 1f);
 
-        if (postProcess > 0)
+        if (player != null)
+        {
+            player.GetComponent<MouseLook>().mouseSensitivity = initialMouseSensibility * 100;
+        }
+
+        if (mouseSlider != null)
+        {
+            mouseSlider.value = initialMouseSensibility;
+        }
+
+        if (sfx != null)
+        {
+            sfx.value = initialSFX;
+        }
+
+        if (music != null)
+        {
+            music.value = initialMusic;
+        }
+
+        UpdateSensibility(initialMouseSensibility);
+        UpdateMusicVolume(initialMusic);
+        UpdateSFXVolume(initialSFX);
+
+        PProcessManager();
+    }
+
+    public void Update()
+    {
+
+        if (audioControl == null)
+        {
+            audioControl = FindObjectOfType<AudioMixer>();
+        }
+    }
+
+    public void ChangeSensitivity(float value)
+    {
+        Debug.Log(value);
+        PlayerPrefs.SetFloat("Sensibilidad", value);
+    }
+
+    public void UpdateSensibility(float newValue)
+    {
+        if (player != null)
+        {
+            player.GetComponent<MouseLook>().mouseSensitivity = newValue * 100;
+        }
+        
+        PlayerPrefs.SetFloat("Sensibilidad", newValue);
+    }
+
+    public void UpdatePProcess()
+    {
+        postProcess++;
+
+        if (postProcess > 1)
+        {
+            postProcess = 0;
+        }
+
+        PProcessManager();
+
+        PlayerPrefs.SetInt("Post-procesado", postProcess);
+    }
+
+    public void ChangeSFXVolume(float value)
+    {
+        Debug.Log(value);
+        PlayerPrefs.SetFloat("SFX Volume", value);
+        UpdateSFXVolume(value);
+    }
+
+    public void UpdateSFXVolume(float newValue)
+    {
+        if (audioControl  != null)
+        {
+            audioControl.SetFloat("SFXVolume", newValue * 20f);
+            print("audio var set.");
+        }
+    }
+
+    public void ChangeMusicVolume(float value)
+    {
+        Debug.Log(value);
+        PlayerPrefs.SetFloat("Music Volume", value);
+        UpdateMusicVolume(value);
+    }
+
+    public void UpdateMusicVolume(float newValue)
+    {
+        if (audioControl != null)
+        {
+            audioControl.SetFloat("musicVolume", newValue * 20);
+            print("audio var set.");
+        }
+    }
+
+    public void PProcessManager()
+    {
+        if (postProcess == 1)
         {
             cam.enabled = false;
         }
 
-        if (player != null)
+        if (postProcess == 0)
         {
-            player.GetComponent<MouseLook>().mouseSensitivity = mouseSensibility * 100;
-        }
-
-        if (audioControl != null)
-        {
-            if (!PlayerPrefs.HasKey("volumneMaster"))
-            {
-                audioControl.SetFloat("masterVolume", PlayerPrefs.GetFloat("volumneMaster", 100));
-            }
-            else
-            {
-                audioControl.SetFloat("masterVolume", PlayerPrefs.GetFloat("volumneMaster"));
-            }
-            
-            if (!PlayerPrefs.HasKey("SFX Volume"))
-            {
-                audioControl.SetFloat("SFXVolume", PlayerPrefs.GetFloat("SFX Volume", 100));
-            }
-            else
-            {
-                audioControl.SetFloat("SFXVolume", PlayerPrefs.GetFloat("SFX Volume"));
-            }
-
-            if (!PlayerPrefs.HasKey("Music Volume"))
-            {
-                audioControl.SetFloat("musicVolume", PlayerPrefs.GetFloat("Music Volume", 100));
-            }
-            else
-            {
-                audioControl.SetFloat("musicVolume", PlayerPrefs.GetFloat("Music Volume"));
-            }
+            cam.enabled = true;
         }
     }
 }

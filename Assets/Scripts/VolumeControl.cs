@@ -46,7 +46,7 @@ public class VolumeControl : MonoBehaviour
             
         else
         {
-            audioMixer.SetFloat("Master", newVolume * 20f);
+            audioMixer.SetFloat("masterVolume", newVolume * 20f);
         }
     }
 }
