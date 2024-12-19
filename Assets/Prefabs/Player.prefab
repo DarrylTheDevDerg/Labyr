@@ -1616,7 +1616,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 5195354533136944587}
         m_TargetAssemblyTypeName: Options, Assembly-CSharp
         m_MethodName: ChangeSensitivity
         m_Mode: 0
@@ -1628,7 +1628,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 5195354533136944587}
         m_TargetAssemblyTypeName: Options, Assembly-CSharp
         m_MethodName: UpdateSensibility
         m_Mode: 0
@@ -2399,7 +2399,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 5195354533136944587}
         m_TargetAssemblyTypeName: Options, Assembly-CSharp
         m_MethodName: ChangeSFXVolume
         m_Mode: 0
@@ -2411,7 +2411,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 5195354533136944587}
         m_TargetAssemblyTypeName: Options, Assembly-CSharp
         m_MethodName: UpdateSFXVolume
         m_Mode: 0
@@ -4041,7 +4041,7 @@ MonoBehaviour:
   m_fontSize: 49.1
   m_fontSizeBase: 49.1
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -4422,6 +4422,7 @@ MonoBehaviour:
   music: {fileID: 8682552703867215590}
   lang: 0
   postProcess: 0
+  fullScreen: 0
 --- !u!1 &7833317194710144262
 GameObject:
   m_ObjectHideFlags: 0
@@ -4841,7 +4842,7 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 5195354533136944587}
         m_TargetAssemblyTypeName: Options, Assembly-CSharp
         m_MethodName: ChangeMusicVolume
         m_Mode: 0
@@ -4853,7 +4854,7 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 5195354533136944587}
         m_TargetAssemblyTypeName: Options, Assembly-CSharp
         m_MethodName: UpdateMusicVolume
         m_Mode: 0

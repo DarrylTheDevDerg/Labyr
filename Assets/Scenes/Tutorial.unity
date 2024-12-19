@@ -880,7 +880,6 @@ GameObject:
   - component: {fileID: 330585550}
   - component: {fileID: 330585547}
   - component: {fileID: 330585549}
-  - component: {fileID: 330585551}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1136,28 +1135,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &330585551
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 330585543}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b958606c51d5e794ea4e80b7c02f11a1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  volumeSlider: {fileID: 0}
-  useAudioSource: 1
-  audioSource:
-  - {fileID: 330585550}
-  - {fileID: 5176693106786141452}
-  - {fileID: 896558616}
-  - {fileID: 449610551}
-  - {fileID: 3987680729873724072}
-  - {fileID: 1899345212}
-  audioMixer: {fileID: 0}
 --- !u!1 &396789515
 GameObject:
   m_ObjectHideFlags: 0
@@ -10142,12 +10119,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d214d4286111e174a8fed2a9cb618b81, type: 3}
---- !u!82 &5176693106786141452 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: -6429009465963964943, guid: d214d4286111e174a8fed2a9cb618b81,
-    type: 3}
-  m_PrefabInstance: {fileID: 5176693106786141451}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6963727666141165559
 PrefabInstance:
   m_ObjectHideFlags: 0

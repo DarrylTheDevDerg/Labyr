@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.Rendering;
 using UnityEngine.Audio;
 using UnityEngine.UI;
-using static UnityEngine.Rendering.DebugUI;
 
 public class Options : MonoBehaviour
 {
@@ -16,6 +15,7 @@ public class Options : MonoBehaviour
     private Volume cam;
     public int lang;
     public int postProcess;
+    public int fullScreen;
     private float mouseSensibility;
 
     // Start is called before the first frame update
@@ -25,9 +25,11 @@ public class Options : MonoBehaviour
 
         lang = PlayerPrefs.GetInt("Idioma", 0);
         postProcess = PlayerPrefs.GetInt("Post-procesado", 0);
+
         float initialMouseSensibility = PlayerPrefs.GetFloat("Sensibilidad", 5f);
         float initialSFX = PlayerPrefs.GetFloat("SFX Volume", 1f);
         float initialMusic = PlayerPrefs.GetFloat("Music Volume", 1f);
+        float initialRes = PlayerPrefs.GetInt("Fullscreen", 0);
 
         if (player != null)
         {
@@ -58,7 +60,6 @@ public class Options : MonoBehaviour
 
     public void Update()
     {
-
         if (audioControl == null)
         {
             audioControl = FindObjectOfType<AudioMixer>();
@@ -137,6 +138,33 @@ public class Options : MonoBehaviour
         if (postProcess == 0)
         {
             cam.enabled = true;
+        }
+    }
+
+    public void ChangeFullscreen()
+    {
+        fullScreen++;
+
+        if (fullScreen > 1)
+        {
+            fullScreen = 0;
+        }
+
+        ScreenManager();
+
+        PlayerPrefs.SetInt("Fullscreen", fullScreen);
+    }
+
+    public void ScreenManager()
+    {
+        if (fullScreen == 0)
+        {
+            Screen.fullScreen = true;
+        }
+
+        if (fullScreen == 1)
+        {
+            Screen.fullScreen = false;
         }
     }
 }

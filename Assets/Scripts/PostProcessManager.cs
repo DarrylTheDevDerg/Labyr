@@ -28,7 +28,7 @@ public class PostProcessManager : MonoBehaviour
     private void Update()
     {
         effect = cam.enabled;
-        language = options.lang;
+        language = PlayerPrefs.GetInt("Idioma", 0);
 
         Manager();
     }
@@ -37,18 +37,18 @@ public class PostProcessManager : MonoBehaviour
     {
         if (effect)
         {
-            if (language == 0)
+            switch (language)
             {
-                optionText.text = "Sí";
-            }
-            
-            if (language == 1)
-            {
-                optionText.text = "Yes";
+                case 0:
+                    optionText.text = "Sí";
+                    break;
+
+                case 1:
+                    optionText.text = "Yes";
+                    break;
             }
         }
-
-        if (!effect)
+        else
         {
             optionText.text = "No";
         }
